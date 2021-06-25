@@ -16,40 +16,6 @@ const routes: Routes = [
       {
         path: 'dashboard',
         loadChildren: () => import('./demo/dashboard/dashboard.module').then(module => module.DashboardModule)
-      },
-      {
-        path: 'layout',
-        loadChildren: () => import('./demo/pages/layout/layout.module').then(module => module.LayoutModule)
-      },
-      {
-        path: 'forms',
-        loadChildren: () => import('./demo/pages/form-elements/form-elements.module').then(module => module.FormElementsModule)
-      },
-      {
-        path: 'tbl-bootstrap',
-        loadChildren: () => import('./demo/pages/tables/tbl-bootstrap/tbl-bootstrap.module').then(module => module.TblBootstrapModule)
-      },
-      {
-        path: 'charts',
-        loadChildren: () => import('./demo/pages/core-chart/core-chart.module').then(module => module.CoreChartModule)
-      },
-      {
-        path: 'maps',
-        loadChildren: () => import('./demo/pages/core-maps/core-maps.module').then(module => module.CoreMapsModule)
-      },
-      {
-        path: 'sample-page',
-        loadChildren: () => import('./demo/pages/sample-page/sample-page.module').then(module => module.SamplePageModule)
-      }
-    ]
-  },
-  {
-    path: '',
-    component: AuthComponent,
-    children: [
-      {
-        path: 'auth',
-        loadChildren: () => import('./demo/pages/authentication/authentication.module').then(module => module.AuthenticationModule)
       }
     ]
   }

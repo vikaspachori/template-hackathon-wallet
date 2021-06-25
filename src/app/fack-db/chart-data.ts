@@ -35,7 +35,7 @@ export class ChartDB {
   };
   public static area1CAC = {
     chart: {
-      height: 350,
+      height: 100,
       type: 'area',
     },
     dataLabels: {
