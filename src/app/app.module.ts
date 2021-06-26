@@ -27,6 +27,7 @@ import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule 
 import { TransactionComponent } from './hackathon-components/transaction/transaction.component';
 import { NFTComponent } from './hackathon-components/nft/nft.component';
 import { SpotPriceComponent } from './hackathon-components/spot-price/spot-price.component';
+import { WalletComponent } from './hackathon-components/wallet/wallet.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { SpotPriceComponent } from './hackathon-components/spot-price/spot-price
     ToggleFullScreenDirective,
     TransactionComponent,
     NFTComponent,
-    SpotPriceComponent
+    SpotPriceComponent,
+    WalletComponent
   ],
   imports: [
     BrowserModule,

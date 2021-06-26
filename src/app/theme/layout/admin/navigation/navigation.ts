@@ -41,6 +41,14 @@ const NavigationItems = [
         icon: 'feather icon-layout',
       },
       {
+        id: 'wallet',
+        title: 'Wallet',
+        type: 'item',
+        url: '/wallet',
+        classes: 'nav-item',
+        icon: 'feather icon-layout',
+      },
+      {
         id: 'transactions',
         title: 'Transactions',
         type: 'item',
