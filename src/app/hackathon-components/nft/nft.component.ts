@@ -11,19 +11,32 @@ export class NFTComponent implements OnInit {
   constructor(private tokenService: TokenBalanceService, private elmentRef: ElementRef) { }
   public NftData = [];
   async ngOnInit(): Promise<void> {
-  
-    this.elmentRef.nativeElement.style.setProperty('--columns',11);
-    this.elmentRef.nativeElement.style.setProperty('--yellow',"yellow");
-    this.elmentRef.nativeElement.style.setProperty('--green','green');
-    this.elmentRef.nativeElement.style.setProperty('--blue','blue');
-    this.elmentRef.nativeElement.style.setProperty('--pink','pink');
-    this.elmentRef.nativeElement.style.setProperty('--white','white');
+
+    this.elmentRef.nativeElement.style.setProperty('--columns', 11);
+    this.elmentRef.nativeElement.style.setProperty('--yellow', "yellow");
+    this.elmentRef.nativeElement.style.setProperty('--green', 'green');
+    this.elmentRef.nativeElement.style.setProperty('--blue', 'blue');
+    this.elmentRef.nativeElement.style.setProperty('--pink', 'pink');
+    this.elmentRef.nativeElement.style.setProperty('--white', 'white');
     let data = await this.tokenService.getInfo(true);
     this.processNFTData(data);
 
   }
   public getClass(index) {
     return (index % 2 === 0) ? 'fantom' : 'covalent';
+  }
+  public chunkArray(myArray, chunk_size) {
+    var index = 0;
+    var arrayLength = myArray.length;
+    var tempArray = [];
+
+    for (index = 0; index < arrayLength; index += chunk_size) {
+      let myChunk = myArray.slice(index, index + chunk_size);
+      // Do something if you want with the group
+      tempArray.push(myChunk);
+    }
+
+    return tempArray;
   }
   public processNFTData(data: any) {
     data = data.data;
@@ -43,7 +56,10 @@ export class NFTComponent implements OnInit {
         }
       }
     }
-    this.NftData = Object.assign([], tempArray);
+    this.NftData = Object.assign([], this.chunkArray(tempArray, tempArray.length / 4));
+    this.NftData.reverse();
     debugger;
+    
   }
+
 }

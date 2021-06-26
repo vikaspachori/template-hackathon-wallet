@@ -1,8 +1,27 @@
-<ul>
-  <li *ngFor="let item of NftData">
-    <img
-      [src]="item.image"
-      alt=""
-    />
-  </li>
-</ul>
+<div class="nft-container">
+  <div class="row" *ngFor="let rowItem of NftData">
+    <div class="col-md-3" *ngFor="let col of rowItem">
+      <app-card
+        class="app-card-holder"
+        [cardTitle]="col.name"
+        [options]="false"
+      >
+      
+        <div class="image-container">
+          <img class="image-holder" [src]="col.image" />
+        </div>
+        <div class="nft-footer">
+          <div class="details">
+            <div class="text">Created By</div>
+            <div class="value" [title]="col.created_by_address">{{ col.created_by_address.toString().slice(0,10) }}</div>
+          </div>
+          <div class="details">
+            <div class="text">Owned By</div>
+            <div class="value" [title]="col.original_owner">{{ col.original_owner.toString().slice(0,10) }}</div>
+          </div>
+        </div>
+       
+      </app-card>
+    </div>
+  </div>
+</div>
