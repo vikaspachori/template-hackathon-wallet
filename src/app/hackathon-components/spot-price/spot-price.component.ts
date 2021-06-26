@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { tokenPriceInfo } from 'src/app/theme/shared/models/tokenPrice.model';
+import { SpotPriceService } from 'src/app/theme/shared/services/spotprice/spot-price.service';
 
 @Component({
   selector: 'app-spot-price',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SpotPriceComponent implements OnInit {
 
-  constructor() { }
+  tokens: tokenPriceInfo[] = null;
+  constructor(private priceInfo: SpotPriceService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+
+   let data = await this.priceInfo.getSpotPrices();
+   if(data != null && data.data.items.length > 0)
+   {
+    this.tokens = data.data.items;
+    this.tokens = this.tokens.sort(a=> a.rank).slice(0, 25);
+    console.log(this.tokens);
+   }
+   
   }
 
 }
