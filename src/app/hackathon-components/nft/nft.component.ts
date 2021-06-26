@@ -1,18 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { TokenBalanceService } from 'src/app/theme/shared/services/token-balance.service';
 
 @Component({
   selector: 'app-nft',
   templateUrl: './nft.component.html',
-  styleUrls: ['./nft.component.scss']
+  styleUrls: ['./nft.component.css']
 })
 export class NFTComponent implements OnInit {
 
-  constructor(private tokenService: TokenBalanceService) { }
+  constructor(private tokenService: TokenBalanceService, private elmentRef: ElementRef) { }
   public NftData = [];
   async ngOnInit(): Promise<void> {
+  
+    this.elmentRef.nativeElement.style.setProperty('--columns',11);
+    this.elmentRef.nativeElement.style.setProperty('--yellow',"yellow");
+    this.elmentRef.nativeElement.style.setProperty('--green','green');
+    this.elmentRef.nativeElement.style.setProperty('--blue','blue');
+    this.elmentRef.nativeElement.style.setProperty('--pink','pink');
+    this.elmentRef.nativeElement.style.setProperty('--white','white');
     let data = await this.tokenService.getInfo(true);
-    data;
     this.processNFTData(data);
 
   }
