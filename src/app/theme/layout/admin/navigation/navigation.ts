@@ -49,22 +49,6 @@ const NavigationItems = [
         icon: 'feather icon-layout',
       },
       {
-        id: 'dashboard',
-        title: 'Dashboard',
-        type: 'item',
-        url: '/dashboard/default',
-        classes: 'nav-item',
-        icon: 'feather icon-layout',
-      },
-      {
-        id: 'portfolio',
-        title: 'Portfolio',
-        type: 'item',
-        url: '/dashboard/default',
-        classes: 'nav-item',
-        icon: 'feather icon-layout',
-      },
-      {
         id: 'explore_nfts',
         title: 'Explore NFTS',
         type: 'item',
