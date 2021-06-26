@@ -1,6 +1,5 @@
 import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { TokenBalancesComponent } from './components/token-balances/token-balances.component';
 import { AdminComponent } from './theme/layout/admin/admin.component';
 import {AuthComponent} from './theme/layout/auth/auth.component';
 
@@ -20,10 +19,6 @@ const routes: Routes = [
       },
      
     ]
-  },
-  {
-    path: 'tokenBalances',
-    component: TokenBalancesComponent
   }
 ];
 

@@ -24,7 +24,6 @@ import { ToggleFullScreenDirective } from './theme/shared/full-screen/toggle-ful
 /* Menu Items */
 import { NavigationItem } from './theme/layout/admin/navigation/navigation';
 import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
-import { TokenBalancesComponent } from './components/token-balances/token-balances.component';
 
 @NgModule({
   declarations: [
@@ -41,8 +40,7 @@ import { TokenBalancesComponent } from './components/token-balances/token-balanc
     NavSearchComponent,
     NavRightComponent,
     ConfigurationComponent,
-    ToggleFullScreenDirective,
-    TokenBalancesComponent
+    ToggleFullScreenDirective
   ],
   imports: [
     BrowserModule,
