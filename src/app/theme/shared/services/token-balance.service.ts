@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { tokenBalances } from '../models/tokenbalance.model';
+import { tokenBalances, tokenInfo } from '../models/tokenbalance.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TokenBalanceService {
 
+  
   constructor(private http: HttpClient) { }
 
   getInfo(withNft: boolean): Promise<any>{
