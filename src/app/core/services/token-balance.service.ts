@@ -11,6 +11,7 @@ export class TokenBalanceService {
   constructor(private http: HttpClient) { }
 
   getInfo(withNft: boolean): Promise<any>{
+    debugger;
     let tokenBalanceInfoEndPoint = environment.apiUrl + "/v1/4002/address/"+ environment.walletAddress +"/balances_v2/?key="+ environment.apiKey + "&nft="+ withNft;
     return  this.http.get<tokenBalances>(tokenBalanceInfoEndPoint).toPromise();
   }
