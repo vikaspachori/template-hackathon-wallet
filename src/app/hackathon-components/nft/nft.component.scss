@@ -32,15 +32,17 @@ li:before {
   right: 0;
   width: 50%;
   height: 100%;
-  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/881020/adidas.png);
   background-position: 90% 27%;
   opacity: 0.6;
   transform: skewy(30deg);
   background-size: 40%;
   background-repeat: no-repeat;
 }
-.adidas:before {
-  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/881020/adidas.png);
+.covalent:before {
+  background-image: url(https://www.covalenthq.com/static/images/favicon/android-chrome-192x192.png);
+}
+.fantom:before {
+  background-image: url(https://fantomfoundation-prod-wp-website.s3.ap-southeast-2.amazonaws.com/wp-content/uploads/2020/04/22185032/a_rgoWCA.png);
 }
 .tiger:before {
   background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/881020/tiger.png);
@@ -60,9 +62,11 @@ p {
 
 img {
   position: absolute;
+  cursor: pointer;
+  height: 236px;
   left: 50%;
   transform: translateX(-50%);
-  width: 62%;
+  width: 50%;
   bottom: -10%;
   -webkit-filter: drop-shadow(0 50px 20px rgba(0, 0, 0, 0.2));
   filter: drop-shadow(0 50px 20px rgba(0, 0, 0, 0.2));
@@ -72,16 +76,16 @@ img {
 
 img:hover {
   bottom: 0;
+  opacity: 0.4;
   -webkit-filter: drop-shadow(0 80px 40px rgba(0, 0, 0, 0.2));
   filter: drop-shadow(0 80px 30px rgba(0, 0, 0, 0.2));
 }
-.fs{
+.fs {
   font-size: small;
 }
 @media (min-width: 600px) {
-  
-    $columns: 5;
-  
+  $columns: 5;
+
   li:nth-child(2n-1) {
     grid-column-start: auto;
   }
@@ -90,8 +94,7 @@ img:hover {
   }
 }
 @media (min-width: 900px) {
- 
-    $columns: 7;
+  $columns: 7;
 
   li:nth-child(4n-3) {
     grid-column-start: auto;
@@ -101,8 +104,7 @@ img:hover {
   }
 }
 @media (min-width: 1200px) {
-
-    $columns: 9;
+  $columns: 9;
 
   li:nth-child(6n-5) {
     grid-column-start: auto;
@@ -112,9 +114,8 @@ img:hover {
   }
 }
 @media (min-width: 1500px) {
+  $columns: 11;
 
-    $columns: 11;
-  
   li:nth-child(8n-7) {
     grid-column-start: auto;
   }
@@ -123,8 +124,7 @@ img:hover {
   }
 }
 @media (min-width: 1800px) {
-
-    $columns: 13;
+  $columns: 13;
 
   li:nth-child(10n-9) {
     grid-column-start: auto;
@@ -134,9 +134,8 @@ img:hover {
   }
 }
 @media (min-width: 2100px) {
+  $columns: 15;
 
-    $columns: 15;
- 
   li:nth-child(12n-11) {
     grid-column-start: auto;
   }
