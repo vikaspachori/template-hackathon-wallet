@@ -24,6 +24,9 @@ import { ToggleFullScreenDirective } from './theme/shared/full-screen/toggle-ful
 /* Menu Items */
 import { NavigationItem } from './theme/layout/admin/navigation/navigation';
 import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import { TransactionComponent } from './hackathon-components/transaction/transaction.component';
+import { NFTComponent } from './hackathon-components/nft/nft.component';
+import { SpotPriceComponent } from './hackathon-components/spot-price/spot-price.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule 
     NavSearchComponent,
     NavRightComponent,
     ConfigurationComponent,
-    ToggleFullScreenDirective
+    ToggleFullScreenDirective,
+    TransactionComponent,
+    NFTComponent,
+    SpotPriceComponent
   ],
   imports: [
     BrowserModule,

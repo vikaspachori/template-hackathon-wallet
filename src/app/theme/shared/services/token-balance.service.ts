@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { tokenBalances } from '../models/token.balance.models';
+import { tokenBalances } from '../models/tokenbalance.model';
 
 @Injectable({
   providedIn: 'root'
