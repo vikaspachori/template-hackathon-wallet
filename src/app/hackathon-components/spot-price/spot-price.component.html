@@ -1,1 +1,49 @@
-<p>spot-price works!</p>
+<div _ngcontent-dkp-c85="" class="card ng-tns-c85-46 ng-trigger ng-trigger-cardRemove" style="opacity: 1;">
+    <div _ngcontent-dkp-c85="" class="card-header ng-tns-c85-46 ng-star-inserted" style="">
+       <h5 _ngcontent-dkp-c85="" class="ng-tns-c85-46 ng-star-inserted">Prices</h5>
+       <!----><!---->
+       <div _ngcontent-dkp-c85="" class="card-header-right ng-tns-c85-46 ng-star-inserted">
+          <div _ngcontent-dkp-c85="" ngbdropdown="" placement="auto" class="btn-group card-option dropdown ng-tns-c85-46">
+             <button _ngcontent-dkp-c85="" aria-haspopup="true" type="button" ngbdropdowntoggle="" class="dropdown-toggle btn btn-icon ng-tns-c85-46" aria-expanded="false"><i _ngcontent-dkp-c85="" class="feather icon-more-horizontal ng-tns-c85-46"></i></button>
+             <ul _ngcontent-dkp-c85="" ngbdropdownmenu="" class="list-unstyled card-option dropdown-menu dropdown-menu-right ng-tns-c85-46" x-placement="bottom">
+                <li _ngcontent-dkp-c85="" class="dropdown-item full-card ng-tns-c85-46"><a _ngcontent-dkp-c85="" href="javascript:" class="ng-tns-c85-46"><span _ngcontent-dkp-c85="" class="ng-tns-c85-46"><i _ngcontent-dkp-c85="" class="feather ng-tns-c85-46 icon-maximize"></i> Maximize</span></a></li>
+                <li _ngcontent-dkp-c85="" class="dropdown-item minimize-card ng-tns-c85-46"><a _ngcontent-dkp-c85="" href="javascript:" class="ng-tns-c85-46"><span _ngcontent-dkp-c85="" class="ng-tns-c85-46"><i _ngcontent-dkp-c85="" class="feather ng-tns-c85-46 icon-minus"></i> Collapse </span><span _ngcontent-dkp-c85="" style="display: none;" class="ng-tns-c85-46"><i _ngcontent-dkp-c85="" class="feather icon-plus ng-tns-c85-46"></i></span></a></li>
+                <li _ngcontent-dkp-c85="" class="dropdown-item reload-card ng-tns-c85-46"><a _ngcontent-dkp-c85="" href="javascript:" class="ng-tns-c85-46"><i _ngcontent-dkp-c85="" class="feather icon-refresh-cw ng-tns-c85-46"></i> Reload</a></li>
+                <li _ngcontent-dkp-c85="" class="dropdown-item close-card ng-tns-c85-46"><a _ngcontent-dkp-c85="" href="javascript:" class="ng-tns-c85-46"><i _ngcontent-dkp-c85="" class="feather icon-trash ng-tns-c85-46"></i> Remove</a></li>
+             </ul>
+          </div>
+       </div>
+       <!----><!---->
+    </div>
+    <!---->
+    <div _ngcontent-dkp-c85="" class="ng-tns-c85-46 ng-trigger ng-trigger-collapsedCard ng-star-inserted" style="overflow: hidden;">
+       <div _ngcontent-dkp-c85="" class="card-body ng-tns-c85-46 table-border-style ng-star-inserted" style="">
+          <div  class="table-responsive ng-tns-c85-46">
+             <table  class="table table-striped">
+                <thead >
+                   <tr >
+                      <th >Rank #</th>
+                      <th >Image</th>
+                      <th >Name</th>
+                      <th >Ticker</th>
+                      <th >Rate</th>
+                      <th >Contract Address</th>
+                   </tr>
+                </thead>
+                <tbody >
+                   <tr *ngFor="let tokenInfo of tokens">
+                      <td >{{tokenInfo.rank}}</td>
+                      <td ><img src="{{tokenInfo.logo_url}}" height="28" width="28" /></td>
+                      <td >{{tokenInfo.contract_name}}</td>
+                      <td >{{tokenInfo.contract_ticker_symbol}}</td>
+                      <td >${{tokenInfo.quote_rate}}</td>
+                      <td >{{tokenInfo.contract_address}}</td>
+                   </tr>
+                </tbody>
+             </table>
+          </div>
+       </div>
+       <!---->
+    </div>
+    <!----><!----><!----><!---->
+ </div>

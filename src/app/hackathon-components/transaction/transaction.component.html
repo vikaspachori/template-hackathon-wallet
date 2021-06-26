@@ -1,27 +1,55 @@
-<h5>Token Balances</h5>
-<div class="row">
-    
-    <div class="col-md-6 col-xl-4" *ngFor="let item of tokenInfo">
-        
-        <div  class="marge-card mb-3">
-            <app-card cardclass="mb-0" blockclass="p-0" class="ng-tns-c85-28">
-                <div class="card ng-tns-c85-28 ng-trigger ng-trigger-cardRemove mb-0" style="opacity: 1;">
-                    <div  class="card-body ng-tns-c85-28 p-0 ng-star-inserted" style="">
-                        <img  src="{{item.logo_url}}" alt="{{item.contract_name}}" class="card-img-top ng-tns-c85-28">
-                    </div>
-                </div>
-                <div  class="card ng-tns-c85-29 ng-trigger ng-trigger-cardRemove" style="opacity: 1;">
-                    <div class="card-body ng-tns-c85-29 m-t-15 ng-star-inserted" style="">
-                        <h5 class="card-title ng-tns-c85-29">{{item.contract_name}} 
-
-                        </h5>
-                        <p class="card-text ng-tns-c85-29"><b>Contract Address:</b> {{item.contract_address}}</p>
-                        <p class="card-text ng-tns-c85-29"> Balance: 
-                            <span class="text-muted">{{item.balance}} ~ {{item.contract_ticker_symbol}}</span>
-                        </p>
-                    </div>
-                </div>
-            </app-card>
-        </div>
+<div class="card ng-tns-c85-46 ng-trigger ng-trigger-cardRemove" style="opacity: 1;">
+    <div class="card-header ng-tns-c85-46 ng-star-inserted" style="">
+       <h5 class="ng-tns-c85-46 ng-star-inserted">Transaction Explorer</h5>
+       <!----><!---->
+       <div class="card-header-right ng-tns-c85-46 ng-star-inserted">
+          <div ngbdropdown="" placement="auto" class="btn-group card-option dropdown ng-tns-c85-46">
+             <button aria-haspopup="true" type="button" ngbdropdowntoggle="" class="dropdown-toggle btn btn-icon ng-tns-c85-46" aria-expanded="false"><i class="feather icon-more-horizontal ng-tns-c85-46"></i></button>
+             <ul ngbdropdownmenu="" class="list-unstyled card-option dropdown-menu dropdown-menu-right ng-tns-c85-46" x-placement="bottom">
+                <li class="dropdown-item full-card ng-tns-c85-46"><a href="javascript:" class="ng-tns-c85-46"><span class="ng-tns-c85-46"><i class="feather ng-tns-c85-46 icon-maximize"></i> Maximize</span></a></li>
+                <li class="dropdown-item minimize-card ng-tns-c85-46"><a href="javascript:" class="ng-tns-c85-46"><span class="ng-tns-c85-46"><i class="feather ng-tns-c85-46 icon-minus"></i> Collapse </span><span style="display: none;" class="ng-tns-c85-46"><i class="feather icon-plus ng-tns-c85-46"></i></span></a></li>
+                <li class="dropdown-item reload-card ng-tns-c85-46"><a href="javascript:" class="ng-tns-c85-46"><i class="feather icon-refresh-cw ng-tns-c85-46"></i> Reload</a></li>
+                <li class="dropdown-item close-card ng-tns-c85-46"><a href="javascript:" class="ng-tns-c85-46"><i class="feather icon-trash ng-tns-c85-46"></i> Remove</a></li>
+             </ul>
+          </div>
+       </div>
+       <!----><!---->
     </div>
-</div>
+    <!---->
+    <div class="ng-tns-c85-46 ng-trigger ng-trigger-collapsedCard ng-star-inserted" style="overflow: hidden;">
+       <div class="card-body ng-tns-c85-46 table-border-style ng-star-inserted" style="">
+          <div  class="table-responsive ng-tns-c85-46">
+             <table  class="table table-striped">
+                <thead >
+                   <tr >
+                      <th> #</th>
+                      <th>Transaction Hash</th>
+                      <th>From</th>
+                      <th>To</th>
+                      <th>Value</th>
+                      <th>Gas Spent</th>
+                      <th>Timestamp</th>
+                      <th>Type</th>
+                      <th>Status</th>
+                   </tr>
+                </thead>
+                <tbody >
+                   <tr *ngFor="let trans of transactionList; index as ind">
+                      <td >{{ind + 1}}</td>
+                      <th>{{trans.tx_hash}}</th>
+                      <th>{{trans.from_address}}</th>
+                      <th>{{trans.to_address}}</th>
+                      <th>{{trans.value}}</th>
+                      <th>{{trans.gas_spent}}</th>
+                      <th>{{trans.block_signed_at}}</th>
+                      <th><a href="#">{{trans.log_events.length > 0 ? 'Smart Contract Interfaction': trans.to_address == null ? 'Smart Contract Creation' : 'Value Transfer'}}</a></th>
+                      <th>{{trans.successful == true ? 'Success' : 'Failed'}}</th>
+                   </tr>
+                </tbody>
+             </table>
+          </div>
+       </div>
+       <!---->
+    </div>
+    <!----><!----><!----><!---->
+ </div>

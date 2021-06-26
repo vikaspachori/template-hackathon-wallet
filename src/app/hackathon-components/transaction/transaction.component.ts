@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { tokenInfo } from 'src/app/theme/shared/models/tokenbalance.model';
-import { TokenBalanceService } from 'src/app/theme/shared/services/token-balance.service';
+import { transactions } from 'src/app/theme/shared/models/transactions.model';
+import { TransactionService } from 'src/app/theme/shared/services/transactions/transaction.service';
 
 @Component({
   selector: 'app-transaction',
@@ -9,16 +9,17 @@ import { TokenBalanceService } from 'src/app/theme/shared/services/token-balance
 })
 export class TransactionComponent implements OnInit {
 
-  tokenInfo: tokenInfo[] = null;
-  constructor(private tokenservice:TokenBalanceService) { }
+  transactionList :  transactions[] = null;
+  constructor(private transactionService: TransactionService) { }
 
-  async ngOnInit(): Promise<void> {
-    const data = await this.tokenservice.getInfo(false);
-    if(data.data.items.length > 0)
+  async ngOnInit() {
+    let transactions = await this.transactionService.getTransactions();
+    if(transactions != null && transactions.data.items.length > 0)
     {
-      this.tokenInfo = data.data.items;
-      console.log(this.tokenInfo);
+      this.transactionList = transactions.data.items;
+      console.log(this.transactionList);
     }
+   
   }
 
 }
