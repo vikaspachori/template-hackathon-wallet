@@ -22,7 +22,6 @@ export class SpotPriceComponent implements OnInit {
    {
     this.tokens = data.data.items;
     this.tokens = this.tokens.sort(a=> a.rank).slice(0, 50);
-    console.log(this.tokens);
    }
    
   }
