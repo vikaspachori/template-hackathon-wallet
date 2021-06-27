@@ -10,6 +10,8 @@ export class LoaderService {
     document.getElementById("loadercontainer").style.display = "block";
   }
   public hideLoader() {
-    document.getElementById("loadercontainer").style.display = "none"; 
+    setTimeout(() => {
+      document.getElementById("loadercontainer").style.display = "none"; 
+    }, 1000);
   }
 }
