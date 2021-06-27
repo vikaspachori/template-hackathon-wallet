@@ -35,7 +35,7 @@
   </div>
 </div>
 <ng-template #elsepart>
-  <div
+  <div *ngIf="loaded"
     style="position: absolute; left: 25%; top: 286px; text-shadow: 0 0 8px grey"
   >
     <h1>Sorry, you do not have any NFTs</h1>

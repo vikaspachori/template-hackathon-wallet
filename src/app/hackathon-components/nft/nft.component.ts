@@ -9,11 +9,13 @@ import { TokenBalanceService } from 'src/app/theme/shared/services/token-balance
 })
 export class NFTComponent implements OnInit {
   audio = new Audio();
+  public loaded = false;
   constructor(private tokenService: TokenBalanceService, private loaderSerivce: LoaderService) { }
   public NftData = [];
   async ngOnInit(): Promise<void> {
     this.loaderSerivce.showLoader();
     let data = await this.tokenService.getInfo(true);
+    
     this.processNFTData(data);
 
   }
@@ -55,6 +57,7 @@ export class NFTComponent implements OnInit {
     this.NftData.reverse();
     setTimeout(() => {
       this.loaderSerivce.hideLoader()
+      this.loaded = true;
     }, 2000);
 
   }
