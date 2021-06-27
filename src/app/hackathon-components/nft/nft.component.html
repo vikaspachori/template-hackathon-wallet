@@ -1,12 +1,12 @@
 <div class="nft-container">
   <div class="row" *ngFor="let rowItem of NftData">
-    <div class="col-md-3" *ngFor="let col of rowItem">
+    <div class="col-md-3" *ngFor="let col of rowItem;let i = index">
       <app-card
         class="app-card-holder"
         [cardTitle]="col.name"
         [options]="false"
       >
-        <div class="image-container">
+        <div class="image-container" (mouseenter)="onMouseIn(i)" (mouseleave)="onMouseOut()">
           <img class="image-holder" [src]="col.image" loading="lazy" />
           <div class="description">
            {{ col.description }}
