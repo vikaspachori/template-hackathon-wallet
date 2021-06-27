@@ -17,6 +17,7 @@
           data-dismiss="modal"
           aria-label="Close"
           (click)="exampleModalCenter.hide()"
+    
         >
           <span aria-hidden="true">&times;</span>
         </button>
@@ -55,11 +56,13 @@
           type="button"
           class="btn btn-secondary p3"
           data-dismiss="modal"
+          style="margin-right: 10px;"
           (click)="exampleModalCenter.hide()"
         >
           Close
         </button>
-        <button type="button" class="btn btn-primary p3" (click)="onSave()">
+        <button type="button" class="btn btn-primary p3" (click)="onSave()"
+        [placement]="'top'" ngbTooltip="To reset to default clear the cache/local storage">
           Save changes
         </button>
       </div>
