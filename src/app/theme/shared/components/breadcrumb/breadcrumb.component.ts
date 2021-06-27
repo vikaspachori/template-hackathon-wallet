@@ -124,7 +124,7 @@ export class BreadcrumbComponent implements OnInit {
       }
     });
     this.navigationList = result;
-    this.titleService.setTitle(title + ' | Flash Battle using Covalent APIs on Fantom Chain');
+    this.titleService.setTitle(title + ' | Fanalytics using Covalent APIs on Fantom Chain');
   }
 
 }
