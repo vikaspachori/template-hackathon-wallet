@@ -32,14 +32,14 @@ const NavigationItems = [
     type: 'group',
     icon: 'feather icon-monitor',
     children: [
-      {
-        id: 'dashboard',
-        title: 'Dashboard',
-        type: 'item',
-        url: '/dashboard/default',
-        classes: 'nav-item',
-        icon: 'feather icon-layout',
-      },
+      // {
+      //   id: 'dashboard',
+      //   title: 'Dashboard',
+      //   type: 'item',
+      //   url: '/dashboard/default',
+      //   classes: 'nav-item',
+      //   icon: 'feather icon-layout',
+      // },
       {
         id: 'wallet',
         title: 'Wallet',
