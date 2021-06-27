@@ -18,6 +18,7 @@ export class ChainDataService {
   public setChainData(chainaddress, chaintype) {
     localStorage.setItem("chainaddress", chainaddress);
     localStorage.setItem("chaintype", chaintype)
+    window.location.reload();
   }
 
 }
