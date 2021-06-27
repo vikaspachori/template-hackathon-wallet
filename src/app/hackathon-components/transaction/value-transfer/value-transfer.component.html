@@ -1,0 +1,38 @@
+<div class="card ng-tns-c85-46 ng-trigger ng-trigger-cardRemove" >
+    <div class="ng-tns-c85-46 ng-trigger ng-trigger-collapsedCard ng-star-inserted" style="overflow: hidden;">
+       <div class="card-body ng-tns-c85-46 table-border-style ng-star-inserted" style="">
+          <div  class="table-responsive ng-tns-c85-46">
+             <table  class="table table-striped">
+                <thead >
+                   <tr >
+                      <th> #</th>
+                      <th>Transaction Hash</th>
+                      <th>From</th>
+                      <th>To</th>
+                      <th>Value</th>
+                      <th>Gas Spent</th>
+                      <th>Timestamp</th>
+                     
+                      <th>Status</th>
+                   </tr>
+                </thead>
+                <tbody >
+                   <tr *ngFor="let trans of transactionService.valueTransfers; index as ind">
+                      <td >{{ind + 1}}</td>
+                      <th>{{trans.tx_hash}}</th>
+                      <th>{{trans.from_address}}</th>
+                      <th>{{trans.to_address}}</th>
+                      <th>{{trans.value}}</th>
+                      <th>{{trans.gas_spent}}</th>
+                      <th>{{trans.block_signed_at}}</th>
+                      <th>{{trans.successful == true ? 'Success' : 'Failed'}}</th>
+                   </tr>
+                </tbody>
+             </table>
+          </div>
+       </div>
+       <!---->
+    </div>
+     
+     <!----><!----><!----><!---->
+  </div>
