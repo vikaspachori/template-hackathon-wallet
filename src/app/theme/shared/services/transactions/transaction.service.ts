@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { transactionResponse, transactions } from '../../models/transactions.model';
+import { ChainDataService } from '../chain-data.service';
 import { LoaderService } from '../loader.service';
 import { SpotPriceService } from '../spotprice/spot-price.service';
 
@@ -10,7 +11,7 @@ import { SpotPriceService } from '../spotprice/spot-price.service';
 })
 export class TransactionService {
 
-  constructor(private http: HttpClient, private loaderService: LoaderService, private spotPrice: SpotPriceService) { }
+  constructor(private http: HttpClient, private chainDataService: ChainDataService,  private loaderService: LoaderService, private spotPrice: SpotPriceService) { }
   transactionList :  transactions[] = null;
   valueTransfers: transactions[] = null;
   deploymentTransactions: transactions[] = null;
@@ -22,7 +23,9 @@ export class TransactionService {
 
   getTransactions() : Promise<transactionResponse>
   {
-    let getTransactionsEndPoint = environment.apiUrl + "/v1/4002/address/"+ environment.walletAddress +"/transactions_v2/?key="+ environment.apiKey;
+   
+    let chainInfo = this.chainDataService.getChainData();
+    let getTransactionsEndPoint = environment.apiUrl + "/v1/"+ chainInfo.chaintype +"/address/"+ chainInfo.chainaddress +"/transactions_v2/?key="+ environment.apiKey;
     return  this.http.get<transactionResponse>(getTransactionsEndPoint).toPromise();
   }
 
@@ -36,7 +39,8 @@ export class TransactionService {
       this.valueTransfers = this.transactionList.filter(s=>  s.value !=  "0" && s.to_address != null && s.to_address.length > 0);
       this.deploymentTransactions = this.transactionList.filter(s=>s.to_address == null);
       
-      
+
+    
 
       this.avgGasSpent = this.transactionList.reduce(
         (cost, entry) => 
