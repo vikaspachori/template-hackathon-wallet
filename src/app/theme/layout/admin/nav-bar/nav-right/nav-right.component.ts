@@ -15,7 +15,6 @@ export class NavRightComponent implements OnInit {
   public chainaddress = ''
   ngOnInit() {
     const data = this.chaindata.getChainData();
-    debugger;
     this.chaintype = data.chaintype;
     this.chainaddress = data.chainaddress;
   }
