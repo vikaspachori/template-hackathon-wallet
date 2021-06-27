@@ -7,7 +7,9 @@
             <app-card cardclass="mb-0" blockclass="p-0" class="ng-tns-c85-28">
                 <div class="card ng-tns-c85-28 ng-trigger ng-trigger-cardRemove mb-0" style="opacity: 1;">
                     <div  class="card-body ng-tns-c85-28 p-0 ng-star-inserted" style="">
-                        <img  src="{{item.logo_url}}" alt="{{item.contract_name}}" class="card-img-top ng-tns-c85-28">
+                        <img *ngIf="item.logo_url.length > 0" src="{{item.logo_url}}" height="305" width="391" alt="{{item.contract_name}}" class="card-img-top ng-tns-c85-28">
+                        <img *ngIf="item.logo_url.length == 0" src="https://s3-ap-southeast-1.amazonaws.com/content-ewns/images/productimages/small/5fff3d958d5dbc10304de1bb.png" alt="{{item.contract_name}}" class="card-img-top ng-tns-c85-28">
+                        
                     </div>
                 </div>
                 <div  class="card ng-tns-c85-29 ng-trigger ng-trigger-cardRemove" style="opacity: 1;">
