@@ -42,7 +42,7 @@ export class SeoChart1 {
       },
       y: {
         title: {
-          formatter: (seriesName) => 'Visits :'
+          formatter: (seriesName) => 'Coin Dummy Trend :'
         }
       },
       marker: {

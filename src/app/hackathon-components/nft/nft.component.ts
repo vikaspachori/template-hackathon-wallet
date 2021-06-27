@@ -8,11 +8,10 @@ import { TokenBalanceService } from 'src/app/theme/shared/services/token-balance
   styleUrls: ['./nft.component.css']
 })
 export class NFTComponent implements OnInit {
-
+  audio = new Audio();
   constructor(private tokenService: TokenBalanceService, private loaderSerivce: LoaderService) { }
   public NftData = [];
   async ngOnInit(): Promise<void> {
-    debugger;
     this.loaderSerivce.showLoader();
     let data = await this.tokenService.getInfo(true);
     this.processNFTData(data);
@@ -58,6 +57,17 @@ export class NFTComponent implements OnInit {
       this.loaderSerivce.hideLoader()
     }, 1000);
 
+  }
+
+  onMouseIn(index) {
+    const soundindex = Math.floor(Math.random() * 6) + 1
+    this.audio.src = '../../../assets/backgroundmusic/sound' + soundindex + '.wav';
+    this.audio.load();
+    this.audio.play();
+  }
+  onMouseOut() {
+    this.audio.pause();
+    this.audio.currentTime = 0;
   }
 
 }

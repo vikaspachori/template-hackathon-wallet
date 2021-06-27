@@ -1,101 +1,118 @@
 <div class="row">
   <!-- table card start -->
 
-  <div class="col-md-4 col-xl-4">
-    <app-card [hidHeader]="true" cardClass="support-bar overflow-hidden" blockClass="p-0" [isCardFooter]="true" footerClass="bg-primary text-white">
-     
-        <app-card cardTitle="Coint List" [options]="false">
-          <app-apex-chart chartID="pie-chart-2-cac" [chartConfig]="this.chartDB.pie2CAC"></app-apex-chart>
-        </app-card>
-    
+  <div class="col-md-6 col-xl-6 p3">
+    <app-card
+      cardTitle="Wallet Information"
+      [options]="false"
+      *ngIf="tokenInfo && tokenInfo.length > 0"
+    >
+      <ngb-carousel [showNavigationArrows]="false">
+        <ng-template ngbSlide *ngFor="let item of tokenInfo">
+          <img
+            class="imageSize"
+            *ngIf="item.logo_url.length > 0"
+            src="{{ item.logo_url }}"
+            alt="{{ item.contract_name }}"
+          />
+          <img
+            class="imageSize"
+            *ngIf="item.logo_url.length == 0"
+            src="https://s3-ap-southeast-1.amazonaws.com/content-ewns/images/productimages/small/5fff3d958d5dbc10304de1bb.png"
+            alt="{{ item.contract_name }}"
+          />
+          <div
+            class="carousel-caption d-none d-md-block"
+            style="color: #85054b; text-shadow: -1px 1px 4px #85054b"
+          >
+            <h2 style="color: #85054b">{{ item.contract_name }}</h2>
+            <div>Contract Adress : {{ item.contract_address }}</div>
+            <div>
+              Balance : {{ item.balance }} ~ {{ item.contract_ticker_symbol }}
+            </div>
+          </div>
+        </ng-template>
+      </ngb-carousel>
     </app-card>
   </div>
-  <!-- table card end -->
+  <div class="col-md-6 col-xl-6">
+    <div class="row">
+      <div
+        class="col-xl-4 col-md-12"
+        *ngFor="let item of tokenInfo; let i = index"
+      >
+        <app-card [hidHeader]="true">
+          <div class="row align-items-center">
+            <div class="col-6">
+              <div
+                class="card ng-tns-c85-28 ng-trigger ng-trigger-cardRemove mb-0"
+                style="opacity: 1"
+              >
+                <div
+                  class="card-body ng-tns-c85-28 p-0 ng-star-inserted"
+                  style=""
+                >
+                  <img
+                    style="max-height: 55px"
+                    *ngIf="item.logo_url.length > 0"
+                    src="{{ item.logo_url }}"
+                    height="305"
+                    width="391"
+                    alt="{{ item.contract_name }}"
+                    class="card-img-top ng-tns-c85-28"
+                  />
+                  <img
+                    *ngIf="item.logo_url.length == 0"
+                    src="https://s3-ap-southeast-1.amazonaws.com/content-ewns/images/productimages/small/5fff3d958d5dbc10304de1bb.png"
+                    alt="{{ item.contract_name }}"
+                    class="card-img-top ng-tns-c85-28"
+                  />
+                </div>
+              </div>
+              <!-- <div  class="card ng-tns-c85-29 ng-trigger ng-trigger-cardRemove" style="opacity: 1;">
+                <div class="card-body ng-tns-c85-29 m-t-15 ng-star-inserted" style="">
+                    <h5 class="card-title ng-tns-c85-29">{{item.contract_name}} 
 
-
-  <!-- seo start -->
-  <div class="col-md-8 col-xl-8">
-    <div class="row" style="margin-top:5%">
-      <div class="col-xl-6 col-md-12">
-        <app-card [hidHeader]="true">
-          <div class="row align-items-center">
-            <div class="col-6">
-              <h3>$16,756</h3>
-              <h6 class="text-muted m-b-0">Visits<i class="fa fa-caret-down text-c-red m-l-10"></i></h6>
+                    </h5>
+                    <p class="card-text ng-tns-c85-29"><b>Contract Address:</b> {{item.contract_address}}</p>
+                    <p class="card-text ng-tns-c85-29"> Balance: 
+                        <span class="text-muted">{{item.balance}} ~ {{item.contract_ticker_symbol}}</span>
+                    </p>
+                </div>
+            </div> -->
             </div>
             <div class="col-6">
-              <app-apex-chart chartID="seo-chart-1" [chartConfig]="this.seoChartData1"></app-apex-chart>
+              <app-apex-chart
+                [chartID]="'seo-chart-1' + i"
+                [chartConfig]="this.seoChartData1"
+              ></app-apex-chart>
             </div>
-          </div>
-        </app-card>
-      </div>
-      <div class="col-xl-6 col-md-12">
-        <app-card [hidHeader]="true">
-          <div class="row align-items-center">
-            <div class="col-6">
-              <h3>$16,756</h3>
-              <h6 class="text-muted m-b-0">Visits<i class="fa fa-caret-down text-c-red m-l-10"></i></h6>
-            </div>
-            <div class="col-6">
-              <app-apex-chart chartID="seo-chart-2" [chartConfig]="this.seoChartData1"></app-apex-chart>
-            </div>
-          </div>
-        </app-card>
-      </div>
-      <div class="col-xl-6 col-md-12">
-        <app-card [hidHeader]="true">
-          <div class="row align-items-center">
-            <div class="col-6">
-              <h3>$16,756</h3>
-              <h6 class="text-muted m-b-0">Coin1<i class="fa fa-caret-down text-c-red m-l-10"></i></h6>
-            </div>
-            <div class="col-6">
-              <app-apex-chart chartID="seo-chart-3" [chartConfig]="this.seoChartData1"></app-apex-chart>
-            </div>
-          </div>
-        </app-card>
-      </div>
-      <div class="col-xl-6 col-md-12">
-        <app-card [hidHeader]="true">
-          <div class="row align-items-center">
-            <div class="col-6">
-              <h3>$16,756</h3>
-              <h6 class="text-muted m-b-0">Visits<i class="fa fa-caret-down text-c-red m-l-10"></i></h6>
-            </div>
-            <div class="col-6">
-              <app-apex-chart chartID="seo-chart-4" [chartConfig]="this.seoChartData1"></app-apex-chart>
-            </div>
-          </div>
-        </app-card>
-      </div>
-      <div class="col-xl-6 col-md-12">
-        <app-card [hidHeader]="true">
-          <div class="row align-items-center">
-            <div class="col-6">
-              <h3>$16,756</h3>
-              <h6 class="text-muted m-b-0">Visits<i class="fa fa-caret-down text-c-red m-l-10"></i></h6>
-            </div>
-            <div class="col-6">
-              <app-apex-chart chartID="seo-chart-5" [chartConfig]="this.seoChartData1"></app-apex-chart>
-            </div>
-          </div>
-        </app-card>
-      </div>
-      <div class="col-xl-6 col-md-12">
-        <app-card [hidHeader]="true">
-          <div class="row align-items-center">
-            <div class="col-6">
-              <h3>$16,756</h3>
-              <h6 class="text-muted m-b-0">Visits<i class="fa fa-caret-down text-c-red m-l-10"></i></h6>
-            </div>
-            <div class="col-6">
-              <app-apex-chart chartID="seo-chart-6" [chartConfig]="this.seoChartData1"></app-apex-chart>
+            <div
+              class="card ng-tns-c85-29 ng-trigger ng-trigger-cardRemove"
+              style="opacity: 1"
+            >
+              <div
+                class="card-body ng-tns-c85-29 m-t-15 ng-star-inserted"
+                style=""
+              >
+                <div><b>{{ item.contract_name }}</b></div>
+                <p >
+                  <b>Contract Address:</b> {{ item.contract_address }}
+                </p>
+                <p >
+                 <b> Balance:</b>
+                  <span class="text-muted"
+                    >{{ item.balance }} ~
+                    {{ item.contract_ticker_symbol }}</span
+                  >
+                </p>
+              </div>
             </div>
           </div>
         </app-card>
       </div>
     </div>
   </div>
- 
-  <!-- seo end -->
+
+  <!-- table card end -->
 </div>
