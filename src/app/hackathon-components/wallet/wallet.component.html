@@ -1,29 +1,32 @@
 <h5>Wallet Balances</h5>
+
+
+
 <div class="row">
     
-    <div class="col-md-6 col-xl-4" *ngFor="let item of tokenInfo">
+    <div class="col-md-6 col-xl-3" *ngFor="let item of tokenInfo">
         
-        <div  class="marge-card mb-3">
-            <app-card cardclass="mb-0" blockclass="p-0" class="ng-tns-c85-28">
-                <div class="card ng-tns-c85-28 ng-trigger ng-trigger-cardRemove mb-0" style="opacity: 1;">
-                    <div  class="card-body ng-tns-c85-28 p-0 ng-star-inserted" style="">
-                        <img *ngIf="item.logo_url.length > 0" src="{{item.logo_url}}" height="305" width="391" alt="{{item.contract_name}}" class="card-img-top ng-tns-c85-28">
-                        <img *ngIf="item.logo_url.length == 0" src="https://s3-ap-southeast-1.amazonaws.com/content-ewns/images/productimages/small/5fff3d958d5dbc10304de1bb.png" alt="{{item.contract_name}}" class="card-img-top ng-tns-c85-28">
+        <app-card cardclass="mb-0" blockclass="p-0" class="ng-tns-c85-28">
+            <h5 class="card-title ng-tns-c85-23">{{item.contract_name}} </h5>
+            <div class="card ng-tns-c85-28 ng-trigger ng-trigger-cardRemove mb-0" style="opacity: 1;">
+                <div  class="card-body ng-tns-c85-28 p-0 ng-star-inserted" style="">
+                    <img *ngIf="item.logo_url.length > 0" src="{{item.logo_url}}" style="max-height: 150px; max-width: 300px;"  alt="{{item.contract_name}}" class="card-img-top ng-tns-c85-28">
+                    <img *ngIf="item.logo_url.length == 0" style="max-height: 150px; max-width: 300px;" src="https://s3-ap-southeast-1.amazonaws.com/content-ewns/images/productimages/small/5fff3d958d5dbc10304de1bb.png" alt="{{item.contract_name}}" class="card-img-top ng-tns-c85-28">
+                    
+                </div>
+            </div>
+           
+            <div  class="card ng-tns-c85-29 ng-trigger ng-trigger-cardRemove" style="opacity: 1;">
+                <div class="card-body ng-tns-c85-29 m-t-15 ng-star-inserted" style="">
+                  
+                    
+                    <p class="card-text ng-tns-c85-29"> <b>Balance: </b> 
+                        <span class="text-muted">{{getWalletBalance(item.balance, item.contract_decimals)}} {{item.contract_ticker_symbol}}</span><span class="text-muted">{{getUSDBalance(item.balance, item.contract_ticker_symbol, item.contract_decimals)}} </span>
                         
-                    </div>
+                    </p>
+                    <p class="card-text ng-tns-c85-29"><b>Contract Address:</b> <span class="text-muted"> {{item.contract_address}}</span> </p>
                 </div>
-                <div  class="card ng-tns-c85-29 ng-trigger ng-trigger-cardRemove" style="opacity: 1;">
-                    <div class="card-body ng-tns-c85-29 m-t-15 ng-star-inserted" style="">
-                        <h5 class="card-title ng-tns-c85-29">{{item.contract_name}} 
-
-                        </h5>
-                        <p class="card-text ng-tns-c85-29"><b>Contract Address:</b> {{item.contract_address}}</p>
-                        <p class="card-text ng-tns-c85-29"> Balance: 
-                            <span class="text-muted">{{item.balance}} ~ {{item.contract_ticker_symbol}}</span>
-                        </p>
-                    </div>
-                </div>
-            </app-card>
-        </div>
+            </div>
+        </app-card>
     </div>
 </div>
