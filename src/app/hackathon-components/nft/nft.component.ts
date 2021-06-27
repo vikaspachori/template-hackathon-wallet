@@ -55,7 +55,7 @@ export class NFTComponent implements OnInit {
     this.NftData.reverse();
     setTimeout(() => {
       this.loaderSerivce.hideLoader()
-    }, 1000);
+    }, 3000);
 
   }
 
