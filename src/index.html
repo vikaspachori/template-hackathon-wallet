@@ -21,6 +21,11 @@
   <meta name="keywords" content="">
   <meta name="author" content="Amit Gorasiya" />
  <style>
+
+   /* Loader */
+
+   
+   /* Loader end */
    /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -69,12 +74,32 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+#loadercontainer{
+  background: white;
+    height: 100%;
+    opacity: 0.9;
+    width: 100%;
+    position: absolute;
+    z-index: 10000;
+    display: none;
+}
 
  </style>
   <!-- Favicon icon -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
+  <div id="loadercontainer">
+    <div class="spinner">
+      <div class="spinner-item"></div>
+      <div class="spinner-item"></div>
+      <div class="spinner-item"></div>
+      <div class="spinner-item"></div>
+      <div class="spinner-item"></div>
+    </div>
+    
+    </div>
+  </div>
   <app-root></app-root>
 </body>
 </html>
