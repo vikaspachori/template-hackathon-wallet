@@ -26,6 +26,7 @@ export class DashDefaultComponent implements OnInit {
   public chartDB: any;
   public powerCardChartData2: any;
   tokenInfo: tokenInfo[] = null;
+  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
   constructor(private tokenservice: TokenBalanceService, private loaderService: LoaderService) {
     this.supportChartData1 = SupportChartData1.supportChartData;
     this.supportChartData2 = SupportChartData2.supportChartData;
@@ -42,7 +43,7 @@ export class DashDefaultComponent implements OnInit {
     const data = await this.tokenservice.getInfo(false);
     if(data.data.items.length > 0)
     {
-      this.tokenInfo = data.data.items;
+      this.tokenInfo =[...data.data.items];
     }
     this.loaderService.hideLoader();
   }
