@@ -28,6 +28,10 @@ import { TransactionComponent } from './hackathon-components/transaction/transac
 import { NFTComponent } from './hackathon-components/nft/nft.component';
 import { SpotPriceComponent } from './hackathon-components/spot-price/spot-price.component';
 import { WalletComponent } from './hackathon-components/wallet/wallet.component';
+import { ExplorerComponent } from './hackathon-components/transaction/explorer/explorer.component';
+import { ValueTransferComponent } from './hackathon-components/transaction/value-transfer/value-transfer.component';
+import { ContractDeploymentComponent } from './hackathon-components/transaction/contract-deployment/contract-deployment.component';
+import { ContractInteractionComponent } from './hackathon-components/transaction/contract-interaction/contract-interaction.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +52,11 @@ import { WalletComponent } from './hackathon-components/wallet/wallet.component'
     TransactionComponent,
     NFTComponent,
     SpotPriceComponent,
-    WalletComponent
+    WalletComponent,
+    ExplorerComponent,
+    ValueTransferComponent,
+    ContractDeploymentComponent,
+    ContractInteractionComponent
   ],
   imports: [
     BrowserModule,

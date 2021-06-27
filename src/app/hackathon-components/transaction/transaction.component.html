@@ -6,19 +6,19 @@
             <div  class="row-table ng-tns-c85-0">
                <div  class="col-sm-6 card-body br">
                   <div  class="row">
-                     <div  class="col-sm-4"><i  class="icon feather icon-eye text-c-green mb-1 d-block"></i></div>
+                     <div  class="col-sm-4"><i  class="icon feather icon-file-text text-c-green mb-1 d-block"></i></div>
                      <div  class="col-sm-8 text-md-center">
-                        <h5 >10k</h5>
-                        <span >Visitors</span>
+                        <h5 >{{transactionService?.transactionList?.length}}</h5>
+                        <span > # Transactions</span>
                      </div>
                   </div>
                </div>
                <div  class="col-sm-6 card-body">
                   <div  class="row">
-                     <div  class="col-sm-4"><i  class="icon feather icon-music text-c-red mb-1 d-block"></i></div>
+                     <div  class="col-sm-4"><i  class="icon feather icon-repeat text-c-red mb-1 d-block"></i></div>
                      <div  class="col-sm-8 text-md-center">
-                        <h5 >100%</h5>
-                        <span >Volume</span>
+                        <h5 >{{transactionService?.valueTransfers?.length}}</h5>
+                        <span >Value Transfers</span>
                      </div>
                   </div>
                </div>
@@ -26,19 +26,68 @@
             <div  class="row-table ng-tns-c85-0">
                <div  class="col-sm-6 card-body br">
                   <div  class="row">
-                     <div  class="col-sm-4"><i  class="icon feather icon-file-text text-c-blue mb-1 d-block"></i></div>
+                     <div  class="col-sm-4"><i  class="icon feather icon-package text-c-blue mb-1 d-block"></i></div>
                      <div  class="col-sm-8 text-md-center">
-                        <h5 >2000 +</h5>
-                        <span >Files</span>
+                        <h5 >{{transactionService?.deploymentTransactions?.length}}</h5>
+                        <span >Contract Creation</span>
                      </div>
                   </div>
                </div>
                <div  class="col-sm-6 card-body">
                   <div  class="row">
-                     <div  class="col-sm-4"><i  class="icon feather icon-mail text-c-yellow mb-1 d-block"></i></div>
+                     <div  class="col-sm-4"><i  class="icon feather icon-codepen text-c-yellow mb-1 d-block"></i></div>
                      <div  class="col-sm-8 text-md-center">
-                        <h5 >120</h5>
-                        <span >Mails</span>
+                        <h5>{{transactionService?.interactionTransfers?.length}}</h5>
+                        <span >Contract Interactions</span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!----><!----><!----><!---->
+      </div>
+   </div>
+
+   <div class="col-md-12 col-xl-8">
+      <div  class="card ng-tns-c85-0 ng-trigger ng-trigger-cardRemove flat-card" style="opacity: 1;">
+         <!---->
+         <div  class="card-body ng-tns-c85-0 p-0 ng-star-inserted" style="">
+            <div  class="row-table ng-tns-c85-0">
+               <div  class="col-sm-6 card-body br">
+                  <div  class="row">
+                     <div  class="col-sm-4"><i  class="icon feather icon-credit-card text-c-green mb-1 d-block"></i></div>
+                     <div  class="col-sm-8 text-md-center">
+                        <h5 >{{transactionService?.avgGasSpent}}</h5>
+                        <span > Avg Gas Spent</span>
+                     </div>
+                  </div>
+               </div>
+               <div  class="col-sm-6 card-body">
+                  <div  class="row">
+                     <div  class="col-sm-4"><i  class="icon feather icon-repeat text-c-red mb-1 d-block"></i></div>
+                     <div  class="col-sm-8 text-md-center">
+                        <h5 >{{transactionService?.totalValueTransfer}} FTM</h5>
+                        <span >Total Value of transfers</span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div  class="row-table ng-tns-c85-0">
+               <div  class="col-sm-6 card-body br">
+                  <div  class="row">
+                     <div  class="col-sm-4"><i  class="icon feather icon-package text-c-blue mb-1 d-block"></i></div>
+                     <div  class="col-sm-8 text-md-center">
+                        <h5 >$ {{transactionService?.valueTransferUSD}}</h5>
+                        <span >Total Value of transfers in USD</span>
+                     </div>
+                  </div>
+               </div>
+               <div  class="col-sm-6 card-body">
+                  <div  class="row">
+                     <div  class="col-sm-4"><i  class="icon feather icon-codepen text-c-yellow mb-1 d-block"></i></div>
+                     <div  class="col-sm-8 text-md-center">
+                        <h5>0x655bd1be920d8b903135d359c4a5cb0a7cf0b5bb</h5>
+                        <span >Most Used Contract Interactions</span>
                      </div>
                   </div>
                </div>
@@ -49,58 +98,33 @@
    </div>
 </div>
 
-<div class="card ng-tns-c85-46 ng-trigger ng-trigger-cardRemove" style="opacity: 1;">
-    <div class="card-header ng-tns-c85-46 ng-star-inserted" style="">
-       <h5 class="ng-tns-c85-46 ng-star-inserted">Transaction Explorer</h5>
-       <!----><!---->
-       <div class="card-header-right ng-tns-c85-46 ng-star-inserted">
-          <div ngbdropdown="" placement="auto" class="btn-group card-option dropdown ng-tns-c85-46">
-             <button aria-haspopup="true" type="button" ngbdropdowntoggle="" class="dropdown-toggle btn btn-icon ng-tns-c85-46" aria-expanded="false"><i class="feather icon-more-horizontal ng-tns-c85-46"></i></button>
-             <ul ngbdropdownmenu="" class="list-unstyled card-option dropdown-menu dropdown-menu-right ng-tns-c85-46" x-placement="bottom">
-                <li class="dropdown-item full-card ng-tns-c85-46"><a href="javascript:" class="ng-tns-c85-46"><span class="ng-tns-c85-46"><i class="feather ng-tns-c85-46 icon-maximize"></i> Maximize</span></a></li>
-                <li class="dropdown-item minimize-card ng-tns-c85-46"><a href="javascript:" class="ng-tns-c85-46"><span class="ng-tns-c85-46"><i class="feather ng-tns-c85-46 icon-minus"></i> Collapse </span><span style="display: none;" class="ng-tns-c85-46"><i class="feather icon-plus ng-tns-c85-46"></i></span></a></li>
-                <li class="dropdown-item reload-card ng-tns-c85-46"><a href="javascript:" class="ng-tns-c85-46"><i class="feather icon-refresh-cw ng-tns-c85-46"></i> Reload</a></li>
-                <li class="dropdown-item close-card ng-tns-c85-46"><a href="javascript:" class="ng-tns-c85-46"><i class="feather icon-trash ng-tns-c85-46"></i> Remove</a></li>
-             </ul>
-          </div>
-       </div>
-       <!----><!---->
-    </div>
-    <!---->
-    <div class="ng-tns-c85-46 ng-trigger ng-trigger-collapsedCard ng-star-inserted" style="overflow: hidden;">
-       <div class="card-body ng-tns-c85-46 table-border-style ng-star-inserted" style="">
-          <div  class="table-responsive ng-tns-c85-46">
-             <table  class="table table-striped">
-                <thead >
-                   <tr >
-                      <th> #</th>
-                      <th>Transaction Hash</th>
-                      <th>From</th>
-                      <th>To</th>
-                      <th>Value</th>
-                      <th>Gas Spent</th>
-                      <th>Timestamp</th>
-                      <th>Type</th>
-                      <th>Status</th>
-                   </tr>
-                </thead>
-                <tbody >
-                   <tr *ngFor="let trans of transactionList; index as ind">
-                      <td >{{ind + 1}}</td>
-                      <th>{{trans.tx_hash}}</th>
-                      <th>{{trans.from_address}}</th>
-                      <th>{{trans.to_address}}</th>
-                      <th>{{trans.value}}</th>
-                      <th>{{trans.gas_spent}}</th>
-                      <th>{{trans.block_signed_at}}</th>
-                      <th><a href="#">{{trans.log_events.length > 0 ? 'Smart Contract Interfaction': trans.to_address == null ? 'Smart Contract Creation' : 'Value Transfer'}}</a></th>
-                      <th>{{trans.successful == true ? 'Success' : 'Failed'}}</th>
-                   </tr>
-                </tbody>
-             </table>
-          </div>
-       </div>
-       <!---->
-    </div>
-    <!----><!----><!----><!---->
- </div>
+<div class="row">
+   <div class="col-sm-12">
+     <app-card [hidHeader]="true" cardClass="tab-card">
+       <h5 class="mb-3">Transaction summary</h5>
+       <ngb-tabset>
+         <ngb-tab title="Transaction Explorer">
+           <ng-template ngbTabContent>
+               <app-explorer></app-explorer>
+           </ng-template>
+         </ngb-tab>
+         <ngb-tab title="Value Transfer">
+           <ng-template ngbTabContent>
+             <app-value-transfer></app-value-transfer>
+           </ng-template>
+         </ngb-tab>
+         <ngb-tab title="Smart Contract Creation">
+           <ng-template ngbTabContent>
+              <app-contract-deployment></app-contract-deployment>
+           </ng-template>
+         </ngb-tab>
+         <ngb-tab title="Smart Contract Interaction">
+            <ng-template ngbTabContent>
+               <app-contract-interaction></app-contract-interaction>
+            </ng-template>
+          </ngb-tab>
+       </ngb-tabset>
+     </app-card>
+   </div>
+</div>
+
