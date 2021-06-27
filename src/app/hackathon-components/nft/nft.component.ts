@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
+import { LoaderService } from 'src/app/theme/shared/services/loader.service';
 import { TokenBalanceService } from 'src/app/theme/shared/services/token-balance.service';
 
 @Component({
@@ -8,16 +9,11 @@ import { TokenBalanceService } from 'src/app/theme/shared/services/token-balance
 })
 export class NFTComponent implements OnInit {
 
-  constructor(private tokenService: TokenBalanceService, private elmentRef: ElementRef) { }
+  constructor(private tokenService: TokenBalanceService, private loaderSerivce: LoaderService) { }
   public NftData = [];
   async ngOnInit(): Promise<void> {
-
-    this.elmentRef.nativeElement.style.setProperty('--columns', 11);
-    this.elmentRef.nativeElement.style.setProperty('--yellow', "yellow");
-    this.elmentRef.nativeElement.style.setProperty('--green', 'green');
-    this.elmentRef.nativeElement.style.setProperty('--blue', 'blue');
-    this.elmentRef.nativeElement.style.setProperty('--pink', 'pink');
-    this.elmentRef.nativeElement.style.setProperty('--white', 'white');
+    debugger;
+    this.loaderSerivce.showLoader();
     let data = await this.tokenService.getInfo(true);
     this.processNFTData(data);
 
@@ -58,7 +54,10 @@ export class NFTComponent implements OnInit {
     }
     this.NftData = Object.assign([], this.chunkArray(tempArray, tempArray.length / 4));
     this.NftData.reverse();
-    
+    setTimeout(() => {
+      this.loaderSerivce.hideLoader()
+    }, 1000);
+
   }
 
 }
