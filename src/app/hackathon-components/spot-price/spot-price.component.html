@@ -3,14 +3,13 @@
        <h5 _ngcontent-dkp-c85="" class="ng-tns-c85-46 ng-star-inserted">Prices</h5>
        <!----><!---->
        <div _ngcontent-dkp-c85="" class="card-header-right ng-tns-c85-46 ng-star-inserted">
-          <div _ngcontent-dkp-c85="" ngbdropdown="" placement="auto" class="btn-group card-option dropdown ng-tns-c85-46">
-             <button _ngcontent-dkp-c85="" aria-haspopup="true" type="button" ngbdropdowntoggle="" class="dropdown-toggle btn btn-icon ng-tns-c85-46" aria-expanded="false"><i _ngcontent-dkp-c85="" class="feather icon-more-horizontal ng-tns-c85-46"></i></button>
-             <ul _ngcontent-dkp-c85="" ngbdropdownmenu="" class="list-unstyled card-option dropdown-menu dropdown-menu-right ng-tns-c85-46" x-placement="bottom">
-                <li _ngcontent-dkp-c85="" class="dropdown-item full-card ng-tns-c85-46"><a _ngcontent-dkp-c85="" href="javascript:" class="ng-tns-c85-46"><span _ngcontent-dkp-c85="" class="ng-tns-c85-46"><i _ngcontent-dkp-c85="" class="feather ng-tns-c85-46 icon-maximize"></i> Maximize</span></a></li>
-                <li _ngcontent-dkp-c85="" class="dropdown-item minimize-card ng-tns-c85-46"><a _ngcontent-dkp-c85="" href="javascript:" class="ng-tns-c85-46"><span _ngcontent-dkp-c85="" class="ng-tns-c85-46"><i _ngcontent-dkp-c85="" class="feather ng-tns-c85-46 icon-minus"></i> Collapse </span><span _ngcontent-dkp-c85="" style="display: none;" class="ng-tns-c85-46"><i _ngcontent-dkp-c85="" class="feather icon-plus ng-tns-c85-46"></i></span></a></li>
-                <li _ngcontent-dkp-c85="" class="dropdown-item reload-card ng-tns-c85-46"><a _ngcontent-dkp-c85="" href="javascript:" class="ng-tns-c85-46"><i _ngcontent-dkp-c85="" class="feather icon-refresh-cw ng-tns-c85-46"></i> Reload</a></li>
-                <li _ngcontent-dkp-c85="" class="dropdown-item close-card ng-tns-c85-46"><a _ngcontent-dkp-c85="" href="javascript:" class="ng-tns-c85-46"><i _ngcontent-dkp-c85="" class="feather icon-trash ng-tns-c85-46"></i> Remove</a></li>
-             </ul>
+         <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Search by Ticker"
+              (keyup)='keyUp.next($event)'
+            />
           </div>
        </div>
        <!----><!---->
