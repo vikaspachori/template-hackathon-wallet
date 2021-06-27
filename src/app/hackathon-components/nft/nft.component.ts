@@ -58,7 +58,6 @@ export class NFTComponent implements OnInit {
     }
     this.NftData = Object.assign([], this.chunkArray(tempArray, tempArray.length / 4));
     this.NftData.reverse();
-    debugger;
     
   }
 

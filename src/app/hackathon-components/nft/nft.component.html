@@ -6,21 +6,26 @@
         [cardTitle]="col.name"
         [options]="false"
       >
-      
         <div class="image-container">
           <img class="image-holder" [src]="col.image" />
+          <div class="description">
+           {{ col.description }}
+          </div>
         </div>
         <div class="nft-footer">
           <div class="details">
             <div class="text">Created By</div>
-            <div class="value" [title]="col.created_by_address">{{ col.created_by_address.toString().slice(0,10) }}</div>
+            <div class="value" [title]="col.created_by_address">
+              {{ col.created_by_address.toString().slice(0, 10) }}
+            </div>
           </div>
           <div class="details">
             <div class="text">Owned By</div>
-            <div class="value" [title]="col.original_owner">{{ col.original_owner.toString().slice(0,10) }}</div>
+            <div class="value" [title]="col.original_owner">
+              {{ col.original_owner.toString().slice(0, 10) }}
+            </div>
           </div>
         </div>
-       
       </app-card>
     </div>
   </div>
