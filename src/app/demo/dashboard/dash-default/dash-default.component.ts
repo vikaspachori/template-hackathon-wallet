@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { SupportChartData1} from './chart/support-chart-data-1';
-import { SupportChartData2} from './chart/support-chart-data-2';
+import { SupportChartData1 } from './chart/support-chart-data-1';
+import { SupportChartData2 } from './chart/support-chart-data-2';
 import { SeoChart1 } from './chart/seo-chart-1';
 import { SeoChart2 } from './chart/seo-chart-2';
 import { SeoChart3 } from './chart/seo-chart-3';
 import { PowerCardChart1 } from './chart/power-card-chart-1';
 import { PowerCardChart2 } from './chart/power-card-chart-2';
 import { ChartDB } from 'src/app/fack-db/chart-data';
+import { TokenBalanceService } from 'src/app/theme/shared/services/token-balance.service';
+import { LoaderService } from 'src/app/theme/shared/services/loader.service';
+import { tokenInfo } from 'src/app/theme/shared/models/tokenbalance.model';
 
 @Component({
   selector: 'app-dash-default',
@@ -22,8 +25,8 @@ export class DashDefaultComponent implements OnInit {
   public powerCardChartData1: any;
   public chartDB: any;
   public powerCardChartData2: any;
-
-  constructor() {
+  tokenInfo: tokenInfo[] = null;
+  constructor(private tokenservice: TokenBalanceService, private loaderService: LoaderService) {
     this.supportChartData1 = SupportChartData1.supportChartData;
     this.supportChartData2 = SupportChartData2.supportChartData;
     this.seoChartData1 = SeoChart1.seoChartData;
@@ -34,7 +37,14 @@ export class DashDefaultComponent implements OnInit {
     this.powerCardChartData2 = PowerCardChart2.powerCardChartData;
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.loaderService.showLoader();
+    const data = await this.tokenservice.getInfo(false);
+    if(data.data.items.length > 0)
+    {
+      this.tokenInfo = data.data.items;
+    }
+    this.loaderService.hideLoader();
   }
 
 }

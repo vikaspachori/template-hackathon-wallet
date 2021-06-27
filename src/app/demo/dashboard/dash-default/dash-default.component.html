@@ -1,101 +1,58 @@
 <div class="row">
   <!-- table card start -->
 
-  <div class="col-md-4 col-xl-4">
-    <app-card [hidHeader]="true" cardClass="support-bar overflow-hidden" blockClass="p-0" [isCardFooter]="true" footerClass="bg-primary text-white">
-     
-        <app-card cardTitle="Coint List" [options]="false">
-          <app-apex-chart chartID="pie-chart-2-cac" [chartConfig]="this.chartDB.pie2CAC"></app-apex-chart>
-        </app-card>
-    
+  <div class="col-md-11 col-xl-11 p3">
+    <app-card cardTitle="Wallets Info" blockClass="table-border-style">
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr style="text-align: center">
+              <th>#</th>
+              <th>Coin Name</th>
+              <th>Contract Address</th>
+              <th>Balance</th>
+              <th>Trend</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of tokenInfo; let i = index">
+              <td>
+                <img
+                  class="imageSize"
+                  *ngIf="item.logo_url.length > 0"
+                  src="{{ item.logo_url }}"
+                  alt="{{ item.contract_name }}"
+                />
+                <img
+                  *ngIf="item.logo_url.length == 0"
+                  class="imageSize"
+                  src="https://s3-ap-southeast-1.amazonaws.com/content-ewns/images/productimages/small/5fff3d958d5dbc10304de1bb.png"
+                  alt="{{ item.contract_name }}"
+                />
+              </td>
+              <td class="align">
+                <span>{{ item.contract_name }}</span>
+              </td>
+              <td class="align">
+                <span>{{ item.contract_address }}</span>
+              </td>
+              <td class="align">
+                <span
+                  >{{ item.balance }} ~ {{ item.contract_ticker_symbol }}</span
+                >
+              </td>
+              <td>
+                <app-apex-chart
+                  [chartID]="'seo-chart-' + i"
+                  [chartConfig]="this.seoChartData1"
+                ></app-apex-chart>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </app-card>
   </div>
   <!-- table card end -->
 
-
-  <!-- seo start -->
-  <div class="col-md-8 col-xl-8">
-    <div class="row" style="margin-top:5%">
-      <div class="col-xl-6 col-md-12">
-        <app-card [hidHeader]="true">
-          <div class="row align-items-center">
-            <div class="col-6">
-              <h3>$16,756</h3>
-              <h6 class="text-muted m-b-0">Visits<i class="fa fa-caret-down text-c-red m-l-10"></i></h6>
-            </div>
-            <div class="col-6">
-              <app-apex-chart chartID="seo-chart-1" [chartConfig]="this.seoChartData1"></app-apex-chart>
-            </div>
-          </div>
-        </app-card>
-      </div>
-      <div class="col-xl-6 col-md-12">
-        <app-card [hidHeader]="true">
-          <div class="row align-items-center">
-            <div class="col-6">
-              <h3>$16,756</h3>
-              <h6 class="text-muted m-b-0">Visits<i class="fa fa-caret-down text-c-red m-l-10"></i></h6>
-            </div>
-            <div class="col-6">
-              <app-apex-chart chartID="seo-chart-2" [chartConfig]="this.seoChartData1"></app-apex-chart>
-            </div>
-          </div>
-        </app-card>
-      </div>
-      <div class="col-xl-6 col-md-12">
-        <app-card [hidHeader]="true">
-          <div class="row align-items-center">
-            <div class="col-6">
-              <h3>$16,756</h3>
-              <h6 class="text-muted m-b-0">Coin1<i class="fa fa-caret-down text-c-red m-l-10"></i></h6>
-            </div>
-            <div class="col-6">
-              <app-apex-chart chartID="seo-chart-3" [chartConfig]="this.seoChartData1"></app-apex-chart>
-            </div>
-          </div>
-        </app-card>
-      </div>
-      <div class="col-xl-6 col-md-12">
-        <app-card [hidHeader]="true">
-          <div class="row align-items-center">
-            <div class="col-6">
-              <h3>$16,756</h3>
-              <h6 class="text-muted m-b-0">Visits<i class="fa fa-caret-down text-c-red m-l-10"></i></h6>
-            </div>
-            <div class="col-6">
-              <app-apex-chart chartID="seo-chart-4" [chartConfig]="this.seoChartData1"></app-apex-chart>
-            </div>
-          </div>
-        </app-card>
-      </div>
-      <div class="col-xl-6 col-md-12">
-        <app-card [hidHeader]="true">
-          <div class="row align-items-center">
-            <div class="col-6">
-              <h3>$16,756</h3>
-              <h6 class="text-muted m-b-0">Visits<i class="fa fa-caret-down text-c-red m-l-10"></i></h6>
-            </div>
-            <div class="col-6">
-              <app-apex-chart chartID="seo-chart-5" [chartConfig]="this.seoChartData1"></app-apex-chart>
-            </div>
-          </div>
-        </app-card>
-      </div>
-      <div class="col-xl-6 col-md-12">
-        <app-card [hidHeader]="true">
-          <div class="row align-items-center">
-            <div class="col-6">
-              <h3>$16,756</h3>
-              <h6 class="text-muted m-b-0">Visits<i class="fa fa-caret-down text-c-red m-l-10"></i></h6>
-            </div>
-            <div class="col-6">
-              <app-apex-chart chartID="seo-chart-6" [chartConfig]="this.seoChartData1"></app-apex-chart>
-            </div>
-          </div>
-        </app-card>
-      </div>
-    </div>
-  </div>
- 
-  <!-- seo end -->
 </div>
